@@ -1,4 +1,5 @@
 Overview:
+
 The Fitness App is a mobile and web-based platform designed to help users achieve their health and fitness goals through personalized workout plans, diet tracking, and progress monitoring. It offers a seamless user experience from account registration to daily activity logging, integrating smart recommendations based on user data and preferences.
 
 Key Features:
