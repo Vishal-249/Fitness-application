@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fitness Tracker Pro</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gradient-to-br from-green-100 via-blue-100 to-purple-100 min-h-screen text-gray-800">
+
+  <!-- SIGNUP & LOGIN PAGE -->
+  <div id="auth-screen" class="flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-md space-y-6">
+      <h2 class="text-2xl font-bold text-center">Fitness Tracker Pro</h2>
+      
+      <div id="signup-form" class="space-y-4">
+        <h3 class="text-xl font-semibold text-center">Sign Up</h3>
+        <input type="text" id="signup-username" placeholder="Choose username" class="w-full p-3 border border-gray-300 rounded" />
+        <input type="password" id="signup-password" placeholder="Choose password" class="w-full p-3 border border-gray-300 rounded" />
+        <button onclick="signup()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full">Sign Up</button>
+      </div>
+
+      <div class="text-center text-gray-600">OR</div>
+
+      <div id="login-form" class="space-y-4">
+        <h3 class="text-xl font-semibold text-center">Log In</h3>
+        <input type="text" id="login-username" placeholder="Username" class="w-full p-3 border border-gray-300 rounded" />
+        <input type="password" id="login-password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded" />
+        <button onclick="login()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full">Log In</button>
+      </div>
+
+      <p id="auth-message" class="text-red-600 text-center font-semibold"></p>
+    </div>
+  </div>
+
+  <!-- MAIN APP SCREEN -->
+  <div id="main-app" class="hidden p-6 space-y-6 max-w-4xl mx-auto">
+    
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-3xl font-bold">👟 Fitness Tracker Pro</h1>
+      <button onclick="logout()" class="text-sm text-red-600 underline">Logout</button>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Workout Type -->
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">🏋️ Select Workout</h2>
+        <select id="workout-type" class="w-full p-2 border rounded">
+          <option value="Running">Running</option>
+          <option value="Cycling">Cycling</option>
+          <option value="Yoga">Yoga</option>
+          <option value="Weight Lifting">Weight Lifting</option>
+        </select>
+      </div>
+
+      <!-- Calories Burned -->
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">🔥 Calories Burned</h2>
+        <input type="number" id="minutes" placeholder="Minutes" class="w-full p-2 mb-2 border rounded" />
+        <button onclick="calculateBurn()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">Calculate</button>
+        <p id="burned" class="mt-2 text-lg font-bold"></p>
+      </div>
+
+      <!-- Calorie Intake -->
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">🍽️ Calorie Intake</h2>
+        <input type="text" id="food" placeholder="Food item" class="w-full p-2 mb-2 border rounded" />
+        <input type="number" id="calories" placeholder="Calories" class="w-full p-2 mb-2 border rounded" />
+        <button onclick="addCalories()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">Add</button>
+        <ul id="calorie-list" class="mt-2 space-y-1"></ul>
+        <p class="font-bold mt-2">Total Calories: <span id="calorie-total">0</span></p>
+      </div>
+
+      <!-- Water Tracker -->
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">💧 Water Intake</h2>
+        <input type="number" id="water" placeholder="ml" class="w-full p-2 mb-2 border rounded" />
+        <button onclick="addWater()" class="bg-blue-400 hover:bg-blue-500 text-white px-4 py-2 rounded">Add</button>
+        <p class="font-bold mt-2">Total Water: <span id="water-total">0</span> ml</p>
+      </div>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="bg-white p-6 rounded shadow-lg mt-8">
+      <h2 class="text-2xl font-bold mb-4">📊 Summary</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+        <p><strong>👤 Username:</strong> <span id="summary-username">-</span></p>
+        <p><strong>🏋️ Workout:</strong> <span id="summary-workout">-</span></p>
+        <p><strong>🍔 Calories Consumed:</strong> <span id="summary-calories">0</span></p>
+        <p><strong>🔥 Calories Burned:</strong> <span id="summary-burned">0</span></p>
+        <p><strong>💧 Water Intake:</strong> <span id="summary-water">0</span> ml</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
