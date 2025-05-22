@@ -1,0 +1,10 @@
+/* Add any extra custom styles here */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#calorie-list li {
+  background: #e0f7fa;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
